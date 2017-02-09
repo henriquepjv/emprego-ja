@@ -10,6 +10,7 @@ class JobsController < ApplicationController
     @job = Job.new
   end
   def create
+    #adicionar codigo reduzido
     @job = Job.new
     @job.title = params[:job][:title]
     @job.location = params[:job][:location]
