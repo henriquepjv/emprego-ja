@@ -1,3 +1,13 @@
-<h1> <%= @job.title %> </h1> : <%= @job.location %> : <%= @job.company %> : <%= @job.category %> : <%= @job.description %>
+<h1> <%= @job.title %> </h1> :
+ <%= @job.location %> :
+ <%= @job.company %> :
+ <%= @job.category %> :
+ <%= @job.description %>
+
+<% if @job.featured %>
+  <strong>Destaque</strong>
+<% end %>
+
+
 
 <%= link_to "Voltar",root_path %>

@@ -17,6 +17,7 @@ class JobsController < ApplicationController
     @job.category = params[:job][:category]
     @job.company = params[:job][:company]
     @job.description = params[:job][:description]
+    @job.featured = params[:job][:featured]
     @job.save
     redirect_to job_url(@job.id)
   end
