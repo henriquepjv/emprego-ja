@@ -1,21 +1,3 @@
 <%= flash.now[:error] %>
 
-<%= form_for @job do |f| %>
-<%= f.label :title, "Título" %>
-<%= f.text_field :title %>
-
-<%= f.label :location, "Local" %>
-<%= f.text_field :location  %>
-
-<%= f.label :category, "Categoria" %>
-<%= f.text_field :category  %>
-
-<%= f.label :description, "Descrição" %>
-<%= f.text_field :description %>
-
-<%= f.label :company_id, "Empresa" %>
-<%= f.collection_select :company_id, @companies, :id, :name %>
-
-<%= f.submit "Atualizar Vaga" %>
-
-<% end %>
+<%= render partial: 'form', locals: { text_submit: 'Atualizar Vaga'}  %>

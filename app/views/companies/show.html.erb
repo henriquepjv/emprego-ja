@@ -7,7 +7,6 @@
   <% @company.jobs.each do |job| %>
     <%= job.title %>
     <%= job.category %>
-    Nenhuma vaga disponível
   <% end %>
 
 <% if @company.jobs.empty? %>

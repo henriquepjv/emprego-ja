@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :job_find , only:[:show , :edit , :update]
 
   def index
     @jobs = Job.all
@@ -6,7 +7,6 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
     @companies = Company.find(params[:id])
   end
 
@@ -28,13 +28,11 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @job = Job.find(params[:id])
     @companies = Company.all
   end
 
   def update
     @companies = Company.all
-    @job = Job.find(params[:id])
     if @job.update(job_params)
       redirect_to @job
     else
@@ -48,5 +46,9 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :location, :category, :company_id, :description, :featured)
+  end
+
+  def job_find
+    @job = Job.find(params[:id])
   end
 end
