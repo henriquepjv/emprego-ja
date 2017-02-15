@@ -1,8 +1,17 @@
 <h1> <%= @company.name %> </h1> :
- <%= @company.location %> :
- <%= @company.mail %> :
- <%= @company.phone %> :
+<%= @company.location %> :
+<%= @company.mail %> :
+<%= @company.phone %> :
 
+<h2>Vagas</h2>
+  <% @company.jobs.each do |job| %>
+    <%= job.title %>
+    <%= job.category %>
+    Nenhuma vaga disponível
+  <% end %>
 
+<% if @company.jobs.empty? %>
+  Nenhuma vaga disponível
+<% end %>
 
 <%= link_to "Voltar",root_path %>
