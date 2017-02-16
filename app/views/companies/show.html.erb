@@ -6,7 +6,7 @@
 <h2>Vagas</h2>
   <% @company.jobs.each do |job| %>
     <%= job.title %>
-    <%= job.category %>
+    <%= job.category.name %>
   <% end %>
 
 <% if @company.jobs.empty? %>

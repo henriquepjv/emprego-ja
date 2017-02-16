@@ -11,11 +11,13 @@ class JobsController < ApplicationController
   end
 
   def new
+    @categories = Category.all
     @companies = Company.all
     @job = Job.new
   end
 
   def create
+    @categories = Category.all
     @companies = Company.all
     @job = Job.new(job_params)
     if @job.save
@@ -29,9 +31,11 @@ class JobsController < ApplicationController
 
   def edit
     @companies = Company.all
+    @categories = Category.all
   end
 
   def update
+    @categories = Category.all
     @companies = Company.all
     if @job.update(job_params)
       redirect_to @job
@@ -45,7 +49,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :location, :category, :company_id, :description, :featured)
+    params.require(:job).permit(:title, :location, :category_id, :company_id, :description, :featured)
   end
 
   def job_find
