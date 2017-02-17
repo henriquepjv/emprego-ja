@@ -19,7 +19,6 @@ feature 'User' do
 
   scenario 'validates text field' do
     #setup
-    category = Category.new(name: 'TI')
 
     #activity
     visit new_category_path
