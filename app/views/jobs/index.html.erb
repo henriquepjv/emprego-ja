@@ -1,9 +1,11 @@
 Emprego Já
 
 <% @jobs.each do |job| %>
-<h1> <%= link_to job.title, job_path(job) %> </h1>
- : <%= job.location %>
- : <%= job.company.name %>
+  <% unless job.expired? %>
+    <h1> <%= link_to job.title, job_path(job) %> </h1>
+    : <%= job.location %>
+  : <%= job.company.name %>
+ <% end %>
 
  <% if job.featured %>
    <strong>Destaque</strong>
@@ -17,5 +19,5 @@ Emprego Já
 <%= link_to 'New Company', new_company_path %>
 
 <% @companies.each do |company| %>
-<h1> <%= link_to company.name, company_path(company) %> </h1>
+  <h1> <%= link_to company.name, company_path(company) %> </h1>
 <%end%>
