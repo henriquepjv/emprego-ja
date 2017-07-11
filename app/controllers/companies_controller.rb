@@ -6,8 +6,12 @@ class CompaniesController <  ApplicationController
 
   def create
     @company = Company.new(company_params)
-    @company.save
-    redirect_to @company
+    if @company.save
+      redirect_to @company
+    else
+      flash.now[:notice] = 'Preencha todos os campos'
+      render :new
+    end
   end
 
   def show
